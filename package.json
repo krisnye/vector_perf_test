@@ -1,0 +1,12 @@
+{
+  "name": "vector_perf_test",
+  "version": "1.0.0",
+  "main": "test.js",
+  "repository": "https://github.com/krisnye/vector_perf_test.git",
+  "author": "Kris Nye <krisnye@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
