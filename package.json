@@ -6,6 +6,10 @@
   "author": "Kris Nye <krisnye@gmail.com>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "buildc": "gcc -Ofast perftest.c",
+    "run": "node test.js"
+  },
   "dependencies": {
     "chalk": "^4.1.0"
   }
