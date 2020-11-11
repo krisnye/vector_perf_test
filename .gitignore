@@ -1,0 +1,3 @@
+*.heapsnapshot
+.DS_Store
+*.out
