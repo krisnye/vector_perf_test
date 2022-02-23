@@ -1,4 +1,3 @@
-
 Class Array of Vector3's
 
     Allocated Size: 64 Mb
@@ -15,13 +14,13 @@ Hybrid Array of Float32 processed as Vector classes
     Execution Time: 34 ms
 
 Typed Array
-    is 54 times faster than storing in objects.
-    uses less than 20% of the memory.
-    12 bytes for 3 Floats vs 64 bytes for a Vector with 3 numbers.
+is 54 times faster than storing in objects.
+uses less than 20% of the memory.
+12 bytes for 3 Floats vs 64 bytes for a Vector with 3 numbers.
 
 Hybrid Array
-    is still 41 times faster than storing in objects.
-    uses same memory as Typed Array, (less than 20%).
+is still 41 times faster than storing in objects.
+uses same memory as Typed Array, (less than 20%).
 
 Proxy is SUPER SLOW. Not even a remotely option.
 
@@ -37,6 +36,16 @@ Stick with potentially optimizing the code right to javascript.
     8.77449475071673e+207 wasmTest 32ms
     8.77449475071673e+207 wasmTest 37ms
     8.77449475071673e+207 wasmTest 37ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 94ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 78ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 85ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 69ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 83ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 54ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 54ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 71ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 70ms
+    8.77449475071673e+207 testTypedArrayHybrid64NoVectorClass 77ms
     8.77449475071673e+207 testTypedArrayHybrid 125ms
     8.77449475071673e+207 testTypedArrayHybrid 142ms
     8.77449475071673e+207 testTypedArrayHybrid 73ms
@@ -65,6 +74,7 @@ Stick with potentially optimizing the code right to javascript.
     8.7744710529e+207 Optimized C Code 40ms
 
     JS Objects           => 2200 ms     61 times slower
+    TypedArray No Class  => 73 ms       2 times slower than WASM, 30% slower than with class.
     TypedArray Hybrid    => 56 ms       56% slower
     TypedArray Optimized => 46 ms       28% slower
     Web Assembly         => 36 ms
@@ -72,7 +82,7 @@ Stick with potentially optimizing the code right to javascript.
 
 Summary:
 
-* TypedArray Hybrid which is easy to use is a huge win.
-* The next improvement would be optimized javascript for a 22% improvement.
-* Because that's fairly hard to do and the benefits are small, not a priority.
-* Web Assembly would be 50% faster but that requires memory management and allocating using web assembly memory.
+- TypedArray Hybrid which is easy to use is a huge win.
+- The next improvement would be optimized javascript for a 22% improvement.
+- Because that's fairly hard to do and the benefits are small, not a priority.
+- Web Assembly would be 50% faster but that requires memory management and allocating using web assembly memory.
