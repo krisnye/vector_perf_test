@@ -217,6 +217,34 @@ function testTypedArrayOptimized() {
   return total;
 }
 
+function ____testDataViewOptimized() {
+    let length = size * 3
+    let items = new DataView(new ArrayBuffer(length * 8))
+    for (let k = 0; k < size; k++) {
+        let index = k * 3 << 3
+        items.setFloat64(index, k / 2, true)
+        items.setFloat64(index+8, k / 2, true)
+        items.setFloat64(index+16, - k / 8, true)
+    }
+    for (let i = 0; i < count; i++) {
+        for (let k = 0; k < length; k += 3) {
+            let index = k << 3
+            let x = items.getFloat64(index, true)
+            let y = items.getFloat64(index+8, true)
+            let z = items.getFloat64(index+16, true)
+            let dot = (x + addMe.x) * dotMe.x + (y + addMe.y) * dotMe.y + (z + addMe.z) * dotMe.z
+            items.setFloat64(index, x * dot, true)
+            items.setFloat64(index+8, y * dot, true)
+            items.setFloat64(index+16, z * dot, true)
+        }
+    }
+    let total = 0
+    for (let k = 0; k < length; k++) {
+        total += items.getFloat64(k << 3, true)
+    }
+    return total
+}
+
 function testTypedArrayProxy() {
   let items = new Proxy(new Float64Array(size * 3), {
     get(target, prop, receiver) {
